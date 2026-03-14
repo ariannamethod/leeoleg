@@ -49,7 +49,7 @@ typedef struct {
 static Cfg cfg_from_depth(int depth, HeadMode mode) {
     Cfg c;
     c.T = (depth >= 8) ? 64 : 32;
-    c.E = depth * 16;
+    c.E = depth * 32;
     c.H = (depth < 4) ? 2 : 4;
     c.D = c.E / c.H;
     c.B = depth;

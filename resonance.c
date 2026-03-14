@@ -45,7 +45,7 @@ typedef struct {
 static Cfg cfg_from_depth(int depth) {
     Cfg c;
     c.T = (depth >= 8) ? 64 : 32;
-    c.E = depth * 16;
+    c.E = depth * 32;
     c.H = (depth < 4) ? 2 : 4;
     c.D = c.E / c.H;
     c.B = depth;
@@ -481,7 +481,7 @@ typedef struct {
 } Model;
 
 static void model_init(Model *m, int depth) {
-    if (depth < 1 || depth > MAX_BLK || depth * 16 > MAX_DIM) {
+    if (depth < 1 || depth > MAX_BLK || depth * 32 > MAX_DIM) {
         fprintf(stderr, "[resonance] error: depth=%d out of range\n", depth);
         exit(EXIT_FAILURE);
     }
